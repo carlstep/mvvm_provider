@@ -33,6 +33,19 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             _ui(usersViewModel),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                OutlinedButton(
+                  onPressed: () {},
+                  child: Text('Sort By Name'),
+                ),
+                OutlinedButton(
+                  onPressed: () {},
+                  child: Text('Sort By City'),
+                ),
+              ],
+            )
           ],
         ),
       ),
