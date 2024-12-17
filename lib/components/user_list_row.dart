@@ -29,7 +29,7 @@ class UserListRow extends StatelessWidget {
               userModel.email!,
               style: const TextStyle(color: Colors.black),
             ),
-            Text(userModel.address!.city!)
+            Text(userModel.address?.city ?? ''),
           ],
         ),
       ),

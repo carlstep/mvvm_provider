@@ -35,12 +35,22 @@ class AddNewUserScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+            TextFormField(
+              decoration: const InputDecoration(labelText: 'Enter City'),
+              onChanged: (val) async {
+                usersViewModel.addingUser?.address?.city = val;
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             OutlinedButton(
               onPressed: () async {
                 bool userAdded = await usersViewModel.addUser();
                 if (!userAdded) {
                   return;
                 }
+
                 Navigator.pop(context);
               },
               child: const Text('Add New User'),
