@@ -85,6 +85,12 @@ class UsersViewModel extends ChangeNotifier {
     setLoading(false);
   }
 
+  // TODO setup removeUser method
+  void removeUser(UserModel userModel) {
+    _userListModel.remove(userModel);
+    notifyListeners();
+  }
+
   // sorting methods
   void sortByName() {
     userListModel.sort((a, b) => a.name!.compareTo(b.name!));

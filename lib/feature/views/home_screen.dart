@@ -73,6 +73,11 @@ class HomeScreen extends StatelessWidget {
               usersViewModel.setSelectedUser(userModel);
               openUserDetails(context);
             },
+            onLongPress: () {
+              // TODO remove user from database
+              // display a warning dialog box with two options - cancel or confirm
+              usersViewModel.removeUser(userModel);
+            },
           );
         },
         separatorBuilder: (context, index) => const Divider(

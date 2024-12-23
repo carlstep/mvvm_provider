@@ -5,17 +5,20 @@ import 'package:mvvm_provider/feature/models/user_list_model.dart';
 class UserListRow extends StatelessWidget {
   final UserModel userModel;
   final GestureTapCallback? onTap;
+  final GestureTapCallback? onLongPress;
 
   const UserListRow({
     super.key,
     required this.userModel,
     required this.onTap,
+    required this.onLongPress,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      onLongPress: onLongPress,
       child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
