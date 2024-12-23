@@ -30,7 +30,8 @@ class UserDetailsScreen extends StatelessWidget {
               usersViewModel.selectedUser!.email!,
               style: const TextStyle(color: Colors.black),
             ),
-            Text(usersViewModel.selectedUser!.address!.city!)
+            Text(usersViewModel.selectedUser!.address!.city!),
+            Text(usersViewModel.selectedUser!.company?.name ?? ''),
           ],
         ),
       ),

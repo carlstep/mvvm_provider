@@ -37,11 +37,15 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    usersViewModel.sortByName();
+                  },
                   child: Text('Sort By Name'),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    usersViewModel.sortByCity();
+                  },
                   child: Text('Sort By City'),
                 ),
               ],

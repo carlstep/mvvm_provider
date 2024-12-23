@@ -8,7 +8,8 @@ class UsersViewModel extends ChangeNotifier {
   // variables
   bool _loading = false;
   List<UserModel> _userListModel = [];
-  UserError? _userError; // TODO had to put late because of an error
+
+  UserError? _userError;
   UserModel? _selectedUser;
   UserModel? _addingUser = UserModel();
 
@@ -31,7 +32,9 @@ class UsersViewModel extends ChangeNotifier {
   }
 
   setUserListModel(List<UserModel> userListModel) {
+    userListModel.sort((a, b) => a.address!.city!.compareTo(b.address!.city!));
     _userListModel = userListModel;
+    notifyListeners();
   }
 
   setUserError(UserError userError) {
@@ -49,6 +52,7 @@ class UsersViewModel extends ChangeNotifier {
       return;
     }
     _userListModel.add(addingUser!);
+    _userListModel.sort((a, b) => a.address!.city!.compareTo(b.address!.city!));
     _addingUser = UserModel();
     notifyListeners();
     return true;
@@ -68,7 +72,7 @@ class UsersViewModel extends ChangeNotifier {
     setLoading(true);
     var response = await UserServices.getUsers();
     if (response is Success) {
-      setUserListModel(response.response as List<UserModel>);
+      await setUserListModel(response.response as List<UserModel>);
     }
     if (response is Failure) {
       UserError userError = UserError(
@@ -79,5 +83,16 @@ class UsersViewModel extends ChangeNotifier {
       setUserError(userError);
     }
     setLoading(false);
+  }
+
+  // sorting methods
+  void sortByName() {
+    userListModel.sort((a, b) => a.name!.compareTo(b.name!));
+    notifyListeners();
+  }
+
+  void sortByCity() {
+    userListModel.sort((a, b) => a.address!.city!.compareTo(b.address!.city!));
+    notifyListeners();
   }
 }

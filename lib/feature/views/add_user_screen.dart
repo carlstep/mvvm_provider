@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_provider/feature/models/user_list_model.dart';
 import 'package:mvvm_provider/feature/view_models/users_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -38,6 +39,7 @@ class AddNewUserScreen extends StatelessWidget {
             TextFormField(
               decoration: const InputDecoration(labelText: 'Enter City'),
               onChanged: (val) async {
+                usersViewModel.addingUser?.address ??= Address();
                 usersViewModel.addingUser?.address?.city = val;
               },
             ),
