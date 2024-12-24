@@ -1,19 +1,19 @@
 class Success {
-  int? code;
-  Object? response;
+  int code;
+  Object response;
 
   Success({
-    this.code,
-    this.response,
+    required this.code,
+    required this.response,
   });
 }
 
 class Failure {
-  int? code;
-  Object? errorResponse;
+  int code;
+  Object errorResponse;
 
   Failure({
-    this.code,
-    this.errorResponse,
+    required this.code,
+    required this.errorResponse,
   });
 }

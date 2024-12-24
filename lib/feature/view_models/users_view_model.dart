@@ -32,7 +32,7 @@ class UsersViewModel extends ChangeNotifier {
   }
 
   setUserListModel(List<UserModel> userListModel) {
-    userListModel.sort((a, b) => a.address!.city!.compareTo(b.address!.city!));
+    userListModel.sort((a, b) => a.address!.city.compareTo(b.address!.city));
     _userListModel = userListModel;
     notifyListeners();
   }
@@ -52,17 +52,17 @@ class UsersViewModel extends ChangeNotifier {
       return;
     }
     _userListModel.add(addingUser!);
-    _userListModel.sort((a, b) => a.address!.city!.compareTo(b.address!.city!));
+    _userListModel.sort((a, b) => a.address!.city.compareTo(b.address!.city));
     _addingUser = UserModel();
     notifyListeners();
     return true;
   }
 
   isValid() {
-    if (addingUser?.name == null || addingUser!.name!.isEmpty) {
+    if (addingUser?.name == null || addingUser!.name.isEmpty) {
       return false;
     }
-    if (addingUser?.email == null || addingUser!.email!.isEmpty) {
+    if (addingUser?.email == null || addingUser!.email.isEmpty) {
       return false;
     }
     return true;
@@ -93,12 +93,12 @@ class UsersViewModel extends ChangeNotifier {
 
   // sorting methods
   void sortByName() {
-    userListModel.sort((a, b) => a.name!.compareTo(b.name!));
+    userListModel.sort((a, b) => a.name.compareTo(b.name));
     notifyListeners();
   }
 
   void sortByCity() {
-    userListModel.sort((a, b) => a.address!.city!.compareTo(b.address!.city!));
+    userListModel.sort((a, b) => a.address!.city.compareTo(b.address!.city));
     notifyListeners();
   }
 }

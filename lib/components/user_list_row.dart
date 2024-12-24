@@ -4,8 +4,8 @@ import 'package:mvvm_provider/feature/models/user_list_model.dart';
 
 class UserListRow extends StatelessWidget {
   final UserModel userModel;
-  final GestureTapCallback? onTap;
-  final GestureTapCallback? onLongPress;
+  final GestureTapCallback onTap;
+  final GestureTapCallback onLongPress;
 
   const UserListRow({
     super.key,
@@ -25,11 +25,11 @@ class UserListRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppTitle(
-              titleText: userModel.name!,
+              titleText: userModel.name,
               // style: const TextStyle(color: Colors.black),
             ),
             Text(
-              userModel.email!,
+              userModel.email,
               style: const TextStyle(color: Colors.black),
             ),
             Text(userModel.address?.city ?? ''),

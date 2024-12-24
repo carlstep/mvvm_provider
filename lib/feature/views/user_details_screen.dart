@@ -13,7 +13,7 @@ class UserDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          usersViewModel.selectedUser!.name!,
+          usersViewModel.selectedUser!.name,
         ),
       ),
       body: Container(
@@ -23,15 +23,15 @@ class UserDetailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppTitle(
-              titleText: usersViewModel.selectedUser!.name!,
+              titleText: usersViewModel.selectedUser!.name,
               // style: const TextStyle(color: Colors.black),
             ),
             Text(
-              usersViewModel.selectedUser!.email!,
+              usersViewModel.selectedUser!.email,
               style: const TextStyle(color: Colors.black),
             ),
-            Text(usersViewModel.selectedUser!.address!.city!),
-            Text(usersViewModel.selectedUser!.company?.name ?? ''),
+            Text(usersViewModel.selectedUser!.address!.city),
+            Text(usersViewModel.selectedUser!.company.name ?? ''),
           ],
         ),
       ),

@@ -40,13 +40,13 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {
                     usersViewModel.sortByName();
                   },
-                  child: Text('Sort By Name'),
+                  child: const Text('Sort By Name'),
                 ),
                 OutlinedButton(
                   onPressed: () {
                     usersViewModel.sortByCity();
                   },
-                  child: Text('Sort By City'),
+                  child: const Text('Sort By City'),
                 ),
               ],
             )
